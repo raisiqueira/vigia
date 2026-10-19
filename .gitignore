@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.DS_Store
+.vigia/
+evals/private/
+docs/exploration.md

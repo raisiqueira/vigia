@@ -1,0 +1,69 @@
+{
+  "name": "opencode-vigia",
+  "version": "0.1.0",
+  "description": "OpenCode plugin that helps web developers find, prove, and fix vulnerabilities with open weights models",
+  "author": "Raí Siqueira",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build",
+    "verify:package": "node scripts/verify-package.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
+    "release": "node scripts/release.mjs"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "security",
+    "vulnerability",
+    "appsec",
+    "xss",
+    "open-redirect",
+    "llm",
+    "glm",
+    "mistral"
+  ],
+  "homepage": "https://github.com/raisiqueira/vigia#readme",
+  "bugs": {
+    "url": "https://github.com/raisiqueira/vigia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raisiqueira/vigia.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "vigia": "./dist/init.js"
+  },
+  "files": [
+    "dist",
+    "agents",
+    "skills",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "parse5": "^8.0.1",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "@opencode/plugin": "^2.0.24"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.0.24",
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  },
+  "packageManager": "pnpm@11.1.1"
+}
