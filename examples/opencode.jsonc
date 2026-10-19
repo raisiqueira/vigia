@@ -1,0 +1,36 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": ["opencode-vigia"],
+
+  // Option A: OpenRouter. Set OPENROUTER_API_KEY.
+  "model": "openrouter/z-ai/glm-5.3",
+  // Mistral Large 4 on OpenRouter: "openrouter/mistralai/mistral-large-4-0"
+
+  "providers": {
+    "openrouter": {
+      "models": {
+        // OpenRouter sends GLM 5.3 to more than 40 hosts. Their tool-call parsing differs,
+        // and a bad parse ends the agent turn early. Pin the model maker's own host.
+        // The catalog output limit (256,000) is above the Z.AI maximum (131,072).
+        // Without a lower limit, OpenRouter filters out the Z.AI host.
+        "z-ai/glm-5.3": {
+          "limit": { "output": 65536 },
+          "body": { "provider": { "order": ["z-ai"], "allow_fallbacks": false } },
+        },
+      },
+    },
+
+    // Option B: Infron.ai (OpenAI-compatible). Set INFRON_API_KEY, then set "model": "infron/glm-5.3".
+    // Check the model IDs in the Infron catalog: https://infron.ai/models
+    "infron": {
+      "env": ["INFRON_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://llm.onerouter.pro/v1",
+      },
+      "models": {
+        "glm-5.3": { "modelID": "z-ai/glm-5.3" },
+      },
+    },
+  },
+}
