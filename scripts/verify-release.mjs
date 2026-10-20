@@ -10,7 +10,7 @@ const packageJson = JSON.parse(readFileSync(path.join(root, "package.json"), "ut
 assert(packageJson.name === "opencode-vigia", "release package must be opencode-vigia");
 assert(packageJson.private !== true, "release package must not be private");
 assert(packageJson.type === "module", "release package must remain ESM-only");
-assert(packageJson.bin?.vigia === "./dist/init.js", "release package must keep the vigia bin");
+assert(packageJson.bin?.vigia === "dist/init.js", "release package must keep the vigia bin");
 assert(/^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$/.test(packageJson.version), `invalid version ${packageJson.version}`);
 assert(packageJson.version !== "0.0.0", "set a real version before a release: pnpm release <version>");
 assert(

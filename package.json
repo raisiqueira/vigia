@@ -41,7 +41,7 @@
     }
   },
   "bin": {
-    "vigia": "./dist/init.js"
+    "vigia": "dist/init.js"
   },
   "files": [
     "dist",

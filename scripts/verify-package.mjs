@@ -26,6 +26,15 @@ if (!existsSync(path.join(root, "dist", "index.js"))) {
   process.exit(1);
 }
 
+// npm publish normalizes package.json more strictly than npm pack or pnpm pack, and silently drops what it rejects.
+const publishCheck = spawnSync("npm", ["publish", "--dry-run", "--ignore-scripts"], {
+  cwd: root,
+  encoding: "utf8",
+  shell: isWindows,
+});
+const corrections = publishCheck.stderr.split("\n").filter((line) => /auto-corrected|invalid and removed/.test(line));
+assert(corrections.length === 0, `npm publish would change package.json:\n${corrections.join("\n")}`);
+
 const work = mkdtempSync(path.join(tmpdir(), "vigia-package-"));
 
 try {
