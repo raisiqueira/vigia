@@ -4,6 +4,8 @@ All notable changes to this project are listed here. The format follows [Keep a 
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-20
+
 ### Fixed
 
 - `npm publish` keeps the `vigia` bin. npm 11 removed a bin path that starts with `./`. `verify-package` now runs `npm publish --dry-run` and fails when npm would change `package.json`.

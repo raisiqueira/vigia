@@ -1,6 +1,6 @@
 {
   "name": "opencode-vigia",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenCode plugin that helps web developers find, prove, and fix vulnerabilities with open weights models",
   "author": "Raí Siqueira",
   "license": "MIT",
