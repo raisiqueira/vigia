@@ -1,6 +1,8 @@
 ---
 name: vigia-method
 description: Vigia method to find, prove, score, and fix security vulnerabilities in JavaScript, TypeScript, and Python web code.
+license: MIT
+compatibility: Designed for OpenCode 2.0 or later with the opencode-vigia plugin, which supplies the oracle, finding, and report tools. Requires Node.js 22 or later. Python 3 is optional, for Python URL checks. Runs PoCs only against localhost.
 ---
 
 # Vigia method

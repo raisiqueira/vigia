@@ -4,6 +4,10 @@ All notable changes to this project are listed here. The format follows [Keep a 
 
 ## [Unreleased]
 
+### Added
+
+- `license` and `compatibility` fields in the `vigia-method` skill, so that skill registries such as npmx show them.
+
 ## [0.1.1] - 2026-10-20
 
 ### Fixed
